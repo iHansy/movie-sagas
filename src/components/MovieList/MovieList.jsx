@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import MovieItem from './MovieItem.jsx';
 
 class MovieList extends Component {
 
@@ -19,6 +20,7 @@ class MovieList extends Component {
                 <header>
                     <h1>Movies In Library</h1>
                 </header>
+                <MovieItem />
             </>
         )
     }
@@ -26,8 +28,8 @@ class MovieList extends Component {
 
 const mapStoreToProps = (reduxStore) => {
     return {
-        reduxStore
-    }
+                    reduxStore
+                }
 }
 
 export default connect(mapStoreToProps)(MovieList);
