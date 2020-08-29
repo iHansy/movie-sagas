@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import MovieItem from './MovieItem.jsx';
 import MovieListHeader from './MovieListHeader.jsx';
+import { HashRouter as Router, Route, Link } from 'react-router-dom';
 
 class MovieList extends Component {
 

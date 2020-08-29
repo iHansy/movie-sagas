@@ -32,6 +32,8 @@ const genresReducer = (state = [], action) => {
     }
 }
 
+//
+
 function* fetchMovies() {
     try {
         //response.data is list of movies coming from server side
@@ -39,13 +41,23 @@ function* fetchMovies() {
         //this is adding all movies (response.data) to moviesReducer
         yield put({ type: 'SET_MOVIES', payload: response.data });
     } catch (error) { //catch for any issues
-        console.log('error getting movies', error) 
+        console.log('error getting movies', error);
+    }
+}
+
+function* fetchDetails(action) {
+    try {
+        console.log('FETCHDETAILS ACTION.PAYLOAD:', action.payload);
+    } catch (error) { //catch for any issues
+        console.log('error getting details', error);
     }
 }
 
 // Create the rootSaga generator function
 function* rootSaga() {
-    yield takeEvery('FETCH_MOVIES', fetchMovies)
+    yield takeEvery('FETCH_MOVIES', fetchMovies);
+    yield takeEvery('FETCH_DETAILS', fetchDetails);
+
 }
 
 // Create sagaMiddleware
