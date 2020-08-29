@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import MovieItem from './MovieItem.jsx';
+import MovieListHeader from './MovieListHeader.jsx';
 
 class MovieList extends Component {
 
@@ -17,9 +18,7 @@ class MovieList extends Component {
     render() {
         return (
             <>
-                <header>
-                    <h1>Movies In Library</h1>
-                </header>
+                <MovieListHeader />
                 <MovieItem />
             </>
         )
