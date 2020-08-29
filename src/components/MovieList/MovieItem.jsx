@@ -8,7 +8,9 @@ class MovieItem extends Component {
                 {this.props.moviesReducer.map((movie, index) => {
                     return (
                         <div key={index}>
-                            {movie.id}
+                            <h1>{movie.title}</h1>
+                            <img src={movie.poster} alt="Movie poster for" />
+                            {movie.description}
                         </div>
                     )
                 })}
