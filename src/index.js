@@ -63,10 +63,21 @@ function* fetchDetails(action) {
     }
 }
 
+function* addMovie(action) {
+    try{
+        console.log('adding movie', action.payload);
+        yield axios.post('/api/movie', action.payload);
+
+    } catch (error) {
+        console.log('error getting details', error);
+    }
+}
+
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchMovies);
     yield takeEvery('FETCH_DETAILS', fetchDetails);
+    yield takeEvery('ADD_MOVIE', addMovie);
 }
 
 // Create sagaMiddleware

@@ -1,8 +1,8 @@
 CREATE TABLE "movies" (
   "id" SERIAL PRIMARY KEY,
-  "title" VARCHAR(120) NOT NULL,
-  "rating" VARCHAR(20) NOT NULL,
-  "poster"  VARCHAR(120) NOT NULL,
+  "title" TEXT NOT NULL,
+  "rating" TEXT NOT NULL,
+  "poster"  TEXT NOT NULL,
   "description" TEXT NOT NULL
 );
 

@@ -13,6 +13,7 @@
 
     - Extra - 
 {} Add mouse hover over poster
+{} Be able to delete a Movie
 
 {} Create home page with nav bar to list of movies
 {} Create header on home page/movies 

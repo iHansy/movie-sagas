@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { TextField, InputLabel, MenuItem, FormControl, Select, } from '@material-ui/core';
 
 class FORM extends Component {
@@ -22,7 +23,15 @@ class FORM extends Component {
 
     handleSaveMovie = () => {
         console.log(this.state);
-        this.props.dispatch({ type: 'ADD_MOVIE'})
+        if (this.state.title === '' || this.state.poster === '' || 
+        this.state.description === '' || this.state.genre_id === '' || 
+        this.state.rating === '') {
+            alert('Please fill in all fields.')
+            return;
+        }
+        this.props.dispatch({ type: 'ADD_MOVIE', payload: this.state})
+        this.props.dispatch({ type: 'FETCH_MOVIES' })
+        this.props.history.push('/movie-list');
     }
 
     // RESEARCH THEMES!!!
@@ -111,4 +120,4 @@ const mapStoreToProps = (reduxStore) => {
     }
 }
 
-export default connect(mapStoreToProps)(FORM);
+export default withRouter(connect(mapStoreToProps)(FORM));
