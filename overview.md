@@ -7,7 +7,7 @@
 {} Test alt attribute after styling is done
 {} Valid inputs, movie rating ect
 {} Dropdown for movie rating
-{} Sweet alerts/material UI alerts for movie being created
+{} Sweet alerts/material UI alerts for movie being saved
 
 {} Finish by hitting shift/control f on every file
 

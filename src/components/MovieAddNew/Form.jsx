@@ -5,7 +5,24 @@ import { TextField, InputLabel, MenuItem, FormControl, Select, } from '@material
 class FORM extends Component {
 
     state = {
-        
+        title: '',
+        poster: '',
+        description: '',
+        genre_id: '',
+        rating: '',
+    }
+
+    //dynamic setState function using inputs/dropdowns
+    handleChange = (property, event) => {
+        this.setState({
+            ...this.state,
+            [property]: event.target.value
+        })
+    }
+
+    handleSaveMovie = () => {
+        console.log(this.state);
+        this.props.dispatch({ type: 'ADD_MOVIE'})
     }
 
     // RESEARCH THEMES!!!
@@ -16,6 +33,8 @@ class FORM extends Component {
             <form>
                 <div>
                     <TextField
+                        value={this.state.title}
+                        onChange={(event) => this.handleChange('title', event)}
                         type="text"
                         variant="outlined"
                         label="Movie Title"
@@ -23,6 +42,8 @@ class FORM extends Component {
                 </div>
                 <div>
                     <TextField
+                        value={this.state.poster}
+                        onChange={(event) => this.handleChange('poster', event)}
                         type="text"
                         variant="outlined"
                         label="Poster image URL"
@@ -30,6 +51,8 @@ class FORM extends Component {
                 </div>
                 <div>
                     <TextField
+                        value={this.state.description}
+                        onChange={(event) => this.handleChange('description', event)}
                         type="text"
                         variant="outlined"
                         label="Description"
@@ -39,8 +62,9 @@ class FORM extends Component {
                     <FormControl>
                         <InputLabel>Genre</InputLabel>
                         <Select
-                            style={{minWidth: "10em"}}
-                            value="10"
+                            style={{ minWidth: "10em" }}
+                            value={this.state.genre_id}
+                            onChange={(event) => this.handleChange('genre_id', event)}
                         >
                             <MenuItem value={1}>Action</MenuItem>
                             <MenuItem value={2}>Adventure</MenuItem>
@@ -56,6 +80,25 @@ class FORM extends Component {
                             <MenuItem value={12}>Thriller</MenuItem>
                         </Select>
                     </FormControl>
+                </div>
+                <div>
+                    <FormControl>
+                        <InputLabel>Rated</InputLabel>
+                        <Select
+                            style={{ minWidth: "10em" }}
+                            value={this.state.rating}
+                            onChange={(event) => this.handleChange('rating', event)}
+                        >
+                            <MenuItem value="G">G</MenuItem>
+                            <MenuItem value="PG">PG</MenuItem>
+                            <MenuItem value="PG-13">PG-13</MenuItem>
+                            <MenuItem value="R">R</MenuItem>
+                        </Select>
+                    </FormControl>
+                </div>
+                <div>
+                    <button>Cancel</button>
+                    <button onClick={this.handleSaveMovie}>Save Movie</button>
                 </div>
             </form>
         )
