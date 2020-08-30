@@ -32,7 +32,7 @@ const genresReducer = (state = [], action) => {
     }
 }
 
-//
+
 
 function* fetchMovies() {
     try {
@@ -47,7 +47,9 @@ function* fetchMovies() {
 
 function* fetchDetails(action) {
     try {
-        console.log('FETCHDETAILS ACTION.PAYLOAD:', action.payload);
+        console.log('fetchDetails action.payload', action.payload);
+        let response = yield axios.get(`/api/details/${action.payload}`);
+        yield console.log(response.data);
     } catch (error) { //catch for any issues
         console.log('error getting details', error);
     }
@@ -57,7 +59,6 @@ function* fetchDetails(action) {
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchMovies);
     yield takeEvery('FETCH_DETAILS', fetchDetails);
-
 }
 
 // Create sagaMiddleware

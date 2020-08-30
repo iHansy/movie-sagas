@@ -6,7 +6,6 @@ router.get('/', (req, res) => {
   const queryText = 'SELECT * FROM "movies";'
   pool.query(queryText)
     .then((result) => { 
-      console.log('RESULT.ROWS ON SERVER', result.rows); //this should be array of movies
       res.send(result.rows);
     })
     .catch((error) => {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { HashRouter, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 
 class MovieItem extends Component {
@@ -10,6 +10,7 @@ class MovieItem extends Component {
     handlePosterClick = (id) => {
         console.log('handling poster...', id);
         // this.props.history.push(`/movie-details/`);
+        //this dispatch is sending id of movie to redux saga
         this.props.dispatch({ type: 'FETCH_DETAILS', payload: id })
     }
 

@@ -2,6 +2,7 @@
 {} Create project README
 {} Deploy to Heroku
 {} Add material UI styling for everything
+{} Add How to train your dragon - special request from GF
 
     - Extra - 
 {} Add mouse hover over poster
