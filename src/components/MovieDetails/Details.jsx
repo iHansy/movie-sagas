@@ -10,9 +10,9 @@ class Details extends Component {
                 {movie && <h2>{movie.title}</h2>}
                 {movie && <h4>Genre:</h4>}
                 <ul>
-                    {this.props.detailsReducer.map((movie, i) => {
+                    {this.props.detailsReducer.map((movieItem, i) => {
                         return (
-                            <p key={i}>{movie.name}</p>
+                            <p key={i}>{movieItem.name}</p>
                         )
                     })}
                 </ul>

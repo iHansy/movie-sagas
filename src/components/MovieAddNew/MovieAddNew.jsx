@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Header from './Header.jsx';
+import Form from './Form.jsx';
 
 class MovieAddNew extends Component {
     render() {
         return (
             <div>
-                <h1>ADD NEW MOVIE HEADER</h1>
+                <Header />
+                <Form />
             </div>
         )
     }
