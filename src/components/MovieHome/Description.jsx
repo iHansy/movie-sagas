@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Header from './Header.jsx';
-import Details from './Details.jsx';
 
-class MovieDetails extends Component {
-
+class Description extends Component {
     render() {
         return (
             <div>
-                <Header />
-                <Details />
+                <p>popcorn picture here</p>
+                <h3>description of website here</h3>
+                <p>movie picture here</p>
             </div>
         )
     }
@@ -21,4 +19,4 @@ const mapStoreToProps = (reduxStore) => {
     }
 }
 
-export default connect(mapStoreToProps)(MovieDetails);
+export default connect(mapStoreToProps)(Description);

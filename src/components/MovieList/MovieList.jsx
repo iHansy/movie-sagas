@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import MovieItem from './MovieItem.jsx';
-import MovieListHeader from './MovieListHeader.jsx';
+import Item from './Item.jsx';
+import Header from './Header.jsx';
+import Description from './Description.jsx';
 
 class MovieList extends Component {
 
@@ -10,16 +11,28 @@ class MovieList extends Component {
         this.fetchMovies();
     }
 
+    handleGoHome = () => {
+        this.props.history.push('/');
+    }
+
     //sending dispatch to sagas to start axios request
     fetchMovies = () => {
         this.props.dispatch({ type: 'FETCH_MOVIES' })
     }
 
+    //function to go to add movie page
+    handleAddMovie = () => {
+        this.props.history.push('/add-movie');
+    }
+
     render() {
         return (
             <>
-                <MovieListHeader />
-                <MovieItem />
+                <button onClick={this.handleGoHome}>Go Home</button>
+                <Header />
+                <Description />
+                <button onClick={this.handleAddMovie}>Add New Movie</button>
+                <Item />
             </>
         )
     }
