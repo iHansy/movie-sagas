@@ -2,16 +2,31 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class MovieDetails extends Component {
+
     render() {
+        let movie = this.props.detailsReducer[0];
         return (
-            <h1>Movie Details!!</h1>
+            <div>
+                <h1>Details View</h1>
+                {movie && <h2>{movie.title}</h2>}
+                {movie && <h4>Genre:</h4>}
+                <ul>
+                    {this.props.detailsReducer.map((movie, i) => {
+                        return (
+                            <p key={i}>{movie.name}</p>
+                        )
+                    })}
+                </ul>
+                {movie && <p>{movie.description}</p>}
+                {movie && <img src={movie.poster} alt={movie.title}/>}
+            </div>
         )
     }
 }
 
 const mapStoreToProps = (reduxStore) => {
     return {
-        reduxStore
+        detailsReducer: reduxStore.detailsReducer
     }
 }
 

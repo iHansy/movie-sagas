@@ -9,7 +9,7 @@ class MovieItem extends Component {
     //will be a lot of communication between client/server/database
     handlePosterClick = (id) => {
         console.log('handling poster...', id);
-        // this.props.history.push(`/movie-details/`);
+        this.props.history.push(`/movie-details/`);
         //this dispatch is sending id of movie to redux saga
         this.props.dispatch({ type: 'FETCH_DETAILS', payload: id })
     }

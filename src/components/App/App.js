@@ -6,9 +6,6 @@ import MovieDetails from '../MovieDetails/MovieDetails.jsx';
 
 class App extends Component {
 
-  componentDidMount() {
-    console.log(this.props.history);
-  }
   // Renders the entire app on the DOM
   render() {
     return (

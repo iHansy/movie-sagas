@@ -3,6 +3,7 @@
 {} Deploy to Heroku
 {} Add material UI styling for everything
 {} Add How to train your dragon - special request from GF
+{} Test alt attribute after styling is done
 
     - Extra - 
 {} Add mouse hover over poster

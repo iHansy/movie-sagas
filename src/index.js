@@ -32,7 +32,14 @@ const genresReducer = (state = [], action) => {
     }
 }
 
-
+const detailsReducer = (state = [], action) => {
+    switch (action.type) {
+        case 'SET_DETAILS':
+            return action.payload;
+        default:
+            return state;
+    }
+}
 
 function* fetchMovies() {
     try {
@@ -49,7 +56,8 @@ function* fetchDetails(action) {
     try {
         console.log('fetchDetails action.payload', action.payload);
         let response = yield axios.get(`/api/details/${action.payload}`);
-        yield console.log(response.data);
+        //response.data is array of movie details
+        yield put({ type: 'SET_DETAILS', payload: response.data})
     } catch (error) { //catch for any issues
         console.log('error getting details', error);
     }
@@ -69,6 +77,7 @@ const storeInstance = createStore(
     combineReducers({
         moviesReducer,
         genresReducer,
+        detailsReducer,
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),
