@@ -21,17 +21,25 @@ class FORM extends Component {
         })
     }
 
-    handleSaveMovie = () => {
+    handleSave = () => {
         console.log(this.state);
-        if (this.state.title === '' || this.state.poster === '' || 
-        this.state.description === '' || this.state.genre_id === '' || 
-        this.state.rating === '') {
+        if (this.state.title === '' || this.state.poster === '' ||
+            this.state.description === '' || this.state.genre_id === '' ||
+            this.state.rating === '') {
             alert('Please fill in all fields.')
             return;
         }
-        this.props.dispatch({ type: 'ADD_MOVIE', payload: this.state})
+        this.props.dispatch({ type: 'ADD_MOVIE', payload: this.state })
+        //updating moviesReducer to include new movie
         this.props.dispatch({ type: 'FETCH_MOVIES' })
         this.props.history.push('/movie-list');
+    }
+
+    //going back to movie list on cancel, user needs to confirm
+    handleCancel = () => {
+        if (window.confirm("This will cancel and bring you back to movie list.")) {
+            this.props.history.push('/movie-list');
+        }
     }
 
     // RESEARCH THEMES!!!
@@ -106,8 +114,8 @@ class FORM extends Component {
                     </FormControl>
                 </div>
                 <div>
-                    <button>Cancel</button>
-                    <button onClick={this.handleSaveMovie}>Save Movie</button>
+                    <button onClick={this.handleCancel}>Cancel</button>
+                    <button onClick={this.handleSave}>Save Movie</button>
                 </div>
             </form>
         )
