@@ -55,7 +55,7 @@ function* fetchMovies() {
 function* fetchDetails(action) {
     try {
         console.log('fetchDetails action.payload', action.payload);
-        let response = yield axios.get(`/api/details/${action.payload}`);
+        let response = yield axios.get(`/api/movie/${action.payload}`);
         //response.data is array of movie details
         yield put({ type: 'SET_DETAILS', payload: response.data})
     } catch (error) { //catch for any issues

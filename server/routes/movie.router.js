@@ -2,11 +2,29 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool')
 
+//get all movies
 router.get('/', (req, res) => {
   const queryText = 'SELECT * FROM "movies";'
   pool.query(queryText)
     .then((result) => { 
       res.send(result.rows);
+    })
+    .catch((error) => {
+      console.log('Error getting movies query', error);
+      res.sendStatus(500); //internal server error
+    });
+});
+
+//get details for one movie
+router.get('/:id', (req, res) => {
+  //req.params is payload of movie id
+  const queryText = `SELECT "movies".title, "movies".rating, "movies".poster, "movies".description, "genres".name, "movies".id FROM "movies_genres"
+  JOIN "movies" ON "movies_genres".movie_id = "movies".id
+  JOIN "genres" ON "movies_genres".genre_id = "genres".id
+  WHERE "movies".id = $1;`; //$1 is sql injection prevention
+  pool.query(queryText, [req.params.id])
+    .then((result) => { 
+      res.send(result.rows); //result.rows sending to sagas
     })
     .catch((error) => {
       console.log('Error getting movies query', error);

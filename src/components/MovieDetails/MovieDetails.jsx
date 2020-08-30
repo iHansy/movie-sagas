@@ -8,7 +8,6 @@ class MovieDetails extends Component {
         //clearing detailsReducer
         this.props.dispatch({ type: 'SET_DETAILS', payload: [] })
         this.props.history.push('/');
-        
     }
 
     render() {
@@ -27,8 +26,9 @@ class MovieDetails extends Component {
                         )
                     })}
                 </ul>
+                {movie && <i>Rating: {movie.rating}</i>}
                 {movie && <p>{movie.description}</p>}
-                {movie && <img src={movie.poster} alt={movie.title}/>}
+                {movie && <img src={movie.poster} alt={movie.title} />}
             </div>
         )
     }
