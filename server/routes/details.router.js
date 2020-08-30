@@ -4,7 +4,6 @@ const pool = require('../modules/pool')
 
 router.get('/:id', (req, res) => {
     //req.params is payload of movie id
-    console.log('testing', req.params.id);
     const queryText = `SELECT "movies".title, "movies".poster, "movies".description, "genres".name, "movies".id FROM "movies_genres"
     JOIN "movies" ON "movies_genres".movie_id = "movies".id
     JOIN "genres" ON "movies_genres".genre_id = "genres".id
