@@ -20,7 +20,7 @@ class MovieItem extends Component {
                     return (
                         <div key={movie.id}>
                             <h1>{movie.title}</h1>
-                            <img onClick={() => this.handlePosterClick(movie.id)} src={movie.poster} alt="Movie poster for" />
+                            <img className="moviePoster" onClick={() => this.handlePosterClick(movie.id)} src={movie.poster} alt="Movie poster for" />
                         </div>
                     )
                 })}

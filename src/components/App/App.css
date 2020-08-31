@@ -15,7 +15,7 @@
   to { transform: rotate(360deg); }
 }
 
-.header1 {
-  background-color: #222;
-  color: white;
+.moviePoster {
+  height: 18em;
+  width: 12em;
 }
