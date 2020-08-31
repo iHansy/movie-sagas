@@ -5,19 +5,11 @@ import Description from './Description.jsx';
 
 class MovieHome extends Component {
 
-    //going to movie list
-    handleViewMovies = () => {
-        this.props.history.push('/movie-list');
-    }
-
     render() {
         return (
-            <div>
-                <header className="header1">
-                    <Header />
-                </header>
+            <div className="movieHome">
+                <Header />
                 <Description />
-                <button onClick={this.handleViewMovies}>View Movies</button>
             </div>
         )
     }

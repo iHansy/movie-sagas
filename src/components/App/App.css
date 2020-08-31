@@ -19,3 +19,52 @@
   height: 18em;
   width: 12em;
 }
+
+body {
+  background-color: rgb(187, 186, 184);
+}
+
+.homeHeader {
+  font-size: 2em;
+  font-family: Impact;
+  background-color: whitesmoke;
+  margin-top: 1em;
+  margin-left: 4em;
+  margin-right: 4em;
+  border-radius: 5em;
+  box-shadow: black 10px 10px 10px;
+}
+
+.homeHeader h1 {
+  padding: 
+  0.4em;
+}
+
+.homeDiv {
+  display: flex;
+  margin-top: 5em;
+}
+
+.homeDiv img {
+  margin-left: 7em;
+  margin-right: 3em;
+  border-radius: 1em;
+  transform: rotate(-20deg);
+  float:  left;
+}
+
+.homeDiv p {
+  margin-right: 15em;
+  height: 4.5em;
+  padding: 1em;
+  border-radius: 2em;
+  font-size: larger;
+  margin-left: 2em
+}
+
+.homeButton {
+  margin-bottom: 50px;
+  position: relative;
+  bottom: 6em;
+  margin-left: 5em;
+}
