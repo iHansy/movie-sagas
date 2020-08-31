@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-
 class MovieItem extends Component {
 
     //click poster, go to details page of that movie
@@ -16,16 +15,16 @@ class MovieItem extends Component {
 
     render() {
         return (
-                <ul>
-                    {this.props.moviesReducer.map((movie) => {
-                        return (
-                            <div key={movie.id}>
-                                <h1>{movie.title}</h1>
-                                <img onClick={() => this.handlePosterClick(movie.id)} src={movie.poster} alt="Movie poster for" />
-                            </div>
-                        )
-                    })}
-                </ul>
+            <ul>
+                {this.props.moviesReducer.map((movie) => {
+                    return (
+                        <div key={movie.id}>
+                            <h1>{movie.title}</h1>
+                            <img onClick={() => this.handlePosterClick(movie.id)} src={movie.poster} alt="Movie poster for" />
+                        </div>
+                    )
+                })}
+            </ul>
         )
     }
 }

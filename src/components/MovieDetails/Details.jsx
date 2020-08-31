@@ -8,6 +8,7 @@ class Details extends Component {
             <div>
                 {/* only displaying certain text as long as detailsReducer is truthy */}
                 {movie && <h2>{movie.title}</h2>}
+                {/* don't need conditional render on genre */}
                 {movie && <h4>Genre:</h4>}
                 <ul>
                     {this.props.detailsReducer.map((movieItem, i) => {

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 class Header extends Component {
     render() {
         return (
-            <h1> HOMEPAGE HEADER </h1>
+            <h1>Movie Hub</h1>
         )
     }
 }

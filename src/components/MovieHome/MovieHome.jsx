@@ -13,7 +13,9 @@ class MovieHome extends Component {
     render() {
         return (
             <div>
-                <Header />
+                <header className="header1">
+                    <Header />
+                </header>
                 <Description />
                 <button onClick={this.handleViewMovies}>View Movies</button>
             </div>
