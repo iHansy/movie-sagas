@@ -83,6 +83,7 @@ class FORM extends Component {
                             value={this.state.genre_id}
                             onChange={(event) => this.handleChange('genre_id', event)}
                         >
+                            {/* could have set up loop here to map over genres stored in genresReducer */}
                             <MenuItem value={1}>Action</MenuItem>
                             <MenuItem value={2}>Adventure</MenuItem>
                             <MenuItem value={3}>Comedy</MenuItem>
